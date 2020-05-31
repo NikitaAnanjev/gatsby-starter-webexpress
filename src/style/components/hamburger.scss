@@ -40,6 +40,20 @@
       background-color: $color-body-font-light;
     }
 }
+
+.dark {
+
+.hamburger-inner,
+.hamburger-inner::before,
+.hamburger-inner::after {
+
+    background-color:$color-body-font-light;
+
+    @include light-mode {
+        background-color: $color-body-font-dark;
+    }
+}
+}
 .hamburger-inner::before,
 .hamburger-inner::after {
     content: "";
@@ -93,6 +107,19 @@
       color: $color-body-font-light;
     }
 }
+.dark {
+    .site-head-open .hamburger-inner,
+    .site-head-open .hamburger-inner::before,
+    .site-head-open .hamburger-inner::after {
+        background-color: $color-body-font-light-2;
+        color: $color-body-font-light;
+        @include light-mode {
+            background-color: $color-body-font;
+            color: $color-body-font;
+        }
+    }
+}
+
 
 .site-head-open .hamburger-inner {
     transition-delay: 0.32s;

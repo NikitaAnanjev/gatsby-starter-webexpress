@@ -173,9 +173,8 @@ body.dark {
   }
 }
 .dark .site-foot a {
-  @include dark-mode {
-    color: $color-body-font-dark;
-  }
+  color: $color-body-font-dark;
+
 }
 /* Site Navigation
 /* ---------------------------------------------------------- */
@@ -433,9 +432,7 @@ body.dark {
     }
   }
   .dark .site-head-open {
-    @include dark-mode {
-      background: $color-bg-dark;
-    }
+    background: $color-bg-dark;
   }
   .site-head-open .site-head-container {
     height: 100vh;
