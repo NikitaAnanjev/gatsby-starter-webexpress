@@ -1,0 +1,76 @@
+// BANNER
+
+.container {
+  width: 100%;
+  max-height: 100vh;
+}
+
+.banner {
+  display: flex;
+  align-items: center;
+  background-color: $white;
+  position: relative;
+  height: 80vh;
+  margin-top: 50px;
+
+  .row {
+    position: relative;
+
+    .main-text {
+      font-size: 5.8rem;
+      text-transform: uppercase;
+      letter-spacing: 42px;
+      font-weight: 700;
+      color: $white;
+      position: absolute;
+      width: 100%;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      text-align: center;
+      mix-blend-mode: difference;
+      z-index: 9;
+      @media (max-width: 1440px) {
+        font-size: 4.4rem;
+        letter-spacing: 36px;
+      }
+    }
+
+    .main-image {
+      width: 536px;
+      margin: 0 auto;
+      @media (max-width: 1440px) {
+        width: 436px;
+      }
+    }
+  }
+
+  .scroll {
+    font-weight: 700;
+    font-size: 0.875rem;
+    text-decoration: none;
+    letter-spacing: 1.5px;
+    color: $black;
+    text-transform: uppercase;
+    position: absolute;
+    bottom: 48px;
+    left: 25px;
+  }
+
+  .fixed-misc {
+    position: fixed;
+    //top: 50%;
+    right: -48px;
+    transform: rotate(-90deg);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    letter-spacing: 1.5px;
+    color: $white;
+    mix-blend-mode: difference;
+    z-index: 8;
+    @media (max-width: 1440px) {
+      right: -112px;
+    }
+  }
+}
