@@ -1,0 +1,172 @@
+$red: #e20001;
+$black-menu: #191919;
+
+
+//HEADER
+header.custom-site-head {
+  height: 100px;
+
+  .inner-header {
+
+    position: relative;
+    z-index: 10;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .logo a {
+      font-weight: 700;
+      text-decoration: none;
+      color: $black-menu;
+    }
+
+    .menu {
+      button.menu__button {
+        border: none;
+        background: none;
+        outline: none;
+        cursor: pointer;
+        //font-size: 0.8rem;
+        color: $black-menu;
+        box-shadow: none;
+      }
+    }
+  }
+
+  .hamburger-menu {
+    display: none;
+    z-index: 9;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+
+    .menu-secondary-background-color {
+      background-color: $black-menu;
+
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      position: fixed;
+      height: 100%;
+      width: 100%;
+      z-index: -1;
+    }
+
+    .menu-layer {
+      position: relative;
+      background: $red;
+      height: 100%;
+      overflow: hidden;
+
+      .menu-city-background {
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        opacity: 0;
+      }
+
+      .container {
+        width: 1280px;
+        min-width: 1280px;
+        margin: 0 auto;
+
+        .wrapper {
+          position: relative;
+
+          .menu-links {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            top: 200px;
+
+            nav {
+              display: block;
+
+              ul {
+                padding: 0;
+                margin: 0;
+
+                li {
+                  list-style: none;
+                  font-size: 6em;
+                  font-weight: 700;
+                  cursor: pointer;
+                  height: 135px;
+                  overflow: hidden;
+                  position: relative;
+                  width: 700px;
+
+                  a {
+                    position: absolute;
+                    text-decoration: none;
+                    color: $white;
+
+                    &:hover {
+                      color: $black-menu;
+                    }
+                  }
+                }
+              }
+            }
+
+            .info {
+              color: $white;
+              width: 300px;
+              display: flex;
+              justify-content: center;
+              flex-direction: column;
+              vertical-align: middle;
+              h3 {
+                //font-size: 1.2rem;
+                margin: 8px 0;
+
+              }
+
+              p {
+                margin: 0 auto;
+                //font-size: .8rem;
+              }
+            }
+          }
+
+          .locations {
+            position: absolute;
+            bottom: -80px;
+            color: $white;
+            margin-top: 16px;
+            //font-size: .8rem;
+            font-weight: 600;
+
+            span {
+              &:first-child {
+                //margin-left: 64px;
+              }
+              font-weight: 400;
+              cursor: pointer;
+              margin: 0 32px;
+              transition: .3s ease-in-out;
+
+              &:hover {
+                background: $black-menu;
+                padding: 8px 24px;
+                border-radius: 4px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+
+}

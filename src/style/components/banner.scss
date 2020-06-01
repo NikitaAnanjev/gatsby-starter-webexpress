@@ -1,9 +1,5 @@
 // BANNER
 
-.container {
-  width: 100%;
-  max-height: 100vh;
-}
 
 .banner {
   display: flex;
@@ -12,6 +8,9 @@
   position: relative;
   height: 80vh;
   margin-top: 50px;
+  .container {
+    width: 100%;
+  }
 
   .row {
     position: relative;
