@@ -1,6 +1,31 @@
 import React, {useEffect, useRef} from "react"
 import {Link} from "gatsby";
 import gsap from "gsap";
+import {
+    staggerText,
+    staggerReveal,
+    fadeInUp,
+    handleHover,
+    handleHoverExit,
+    handleCityReturn,
+    handleCity,
+    staggerRevealClose
+} from "./Animations";
+
+import dallas from "../images/imageone.jpg";
+import austin from "../images/austin.webp";
+import newyork from "../images/newyork.webp";
+import sanfrancisco from "../images/sanfrancisco.webp";
+import beijing from "../images/beijing.webp";
+
+const cities = [
+    {name: "Aalborg", image: dallas},
+    {name: "Copenhagen", image: austin},
+    {name: "Aarhus", image: newyork},
+    {name: "Prague", image: sanfrancisco},
+    {name: "Riga", image: beijing}
+];
+
 
 const HamburgerMenu = ({state}) => {
 
@@ -18,23 +43,28 @@ const HamburgerMenu = ({state}) => {
     useEffect(() => {
         if (state.clicked === false) {
             //    Close menu
-
-            gsap.to([revealMenu,revealMenuBackground],
+            // staggerRevealClose(revealMenu, revealMenuBackground);
+            gsap.to([revealMenu, revealMenuBackground],
                 {
-                    duration:0.8,
+                    duration: 0.8,
                     height: 0,
                     ease: "power3.inOut",
-                    stagger:{
+                    stagger: {
                         amount: 0.07
                     }
                 });
-
+            gsap.to(menu, {duration: 1, css: {display: "none"}})
             // menu.style.display = 'none'
         } else if (state.clicked === true || (state.clicked === true && state.initial === null)) {
             // OPEN menu
-            // menu.style.display = 'block'
+            gsap.to(menu, {duration: 0, css: {display: "block"}})
+            gsap.to([revealMenuBackground, revealMenu], {duration: 0, opacity: 1, height: '100%'})
+
+            staggerReveal(revealMenuBackground, revealMenu);
+            fadeInUp(info);
+            staggerText(line1.current, line2.current, line3.current);
         }
-    })
+    }, [state]);
 
 
     return (
@@ -42,7 +72,7 @@ const HamburgerMenu = ({state}) => {
         <div ref={el => (menu = el)} className="hamburger-menu">
             <div ref={el => (revealMenuBackground = el)} className="menu-secondary-background-color"></div>
             <div ref={el => (revealMenu = el)} className="menu-layer">
-                <div className="menu-city-background">
+                <div ref={el => (cityBackground = el)} className="menu-city-background">
 
                 </div>
                 <div className="container">
@@ -50,9 +80,15 @@ const HamburgerMenu = ({state}) => {
                         <div className="menu-links">
                             <nav>
                                 <ul>
-                                    <li><Link ref={el => (line1 = el)} to={`/about`}>About</Link></li>
-                                    <li><Link ref={el => (line2 = el)} to={`/work`}>Work</Link></li>
-                                    <li><Link ref={el => (line3 = el)} to={`/contact`}>Contact</Link></li>
+                                    <li><Link ref={line1} to={`/about`}>About</Link></li>
+                                    <li><Link ref={line2} to={`/work`}>Work</Link></li>
+                                    <li><Link ref={line3} to={`/contact`}>Contact</Link></li>
+
+                                    {/*<li  ><Link to={`/about`}> <span ref={el => (line1 = el)} >About</span></Link></li>*/}
+                                    {/*<li  ><Link to={`/work`}> <span ref={el => (line2 = el)} >Work</span></Link></li>*/}
+                                    {/*<li  ><Link to={`/contact`}> <span ref={el => (line3 = el)} >Contact</span></Link></li>*/}
+
+
                                 </ul>
                             </nav>
                             <div ref={el => (info = el)} className="info">
@@ -63,15 +99,20 @@ const HamburgerMenu = ({state}) => {
                                     maxime nesciunt quae reprehenderit rerum voluptatum.
                                 </p>
                             </div>
-                            <div className="locations">
-
-                                <span>Aalborg</span>
-                                <span>Copenhagen</span>
-                                <span>Aarhus</span>
-                                <span>Prague</span>
-                                <span>Riga</span>
-                                <span>Daugavpils</span>
+                            <div className='locations'>
+                                Locations:
+                                {/* Returning the list of cities */}
+                                {cities.map(el => (
+                                    <span
+                                        key={el.name}
+                                        // onMouseEnter={handleCity(el.image.current, cityBackground.current)}
+                                        onMouseEnter={() => handleCity(el.image, cityBackground)}
+                                        onMouseOut={() => handleCityReturn(cityBackground)}>
+                                         {el.name}
+                                     </span>
+                                ))}
                             </div>
+
                         </div>
                     </div>
                 </div>

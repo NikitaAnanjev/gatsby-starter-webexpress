@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { Link } from "gatsby";
-import { ThemeToggler } from "gatsby-plugin-dark-mode";
+// import { ThemeToggler } from "gatsby-plugin-dark-mode";
 import HamburgerMenu from "../components/hamburgmenu";
 const Layout = props => {
   const { title, children } = props;
@@ -12,7 +12,7 @@ const Layout = props => {
     menuName: "Menu"
   });
   const [disabled, setDisabled] = useState(false);
-
+  // Toggle menu
   const handleMenu = () => {
     disableMenu();
     if (state.initial === false) {
@@ -21,18 +21,14 @@ const Layout = props => {
         clicked: true,
         menuName: "Close"
       });
-
-
     } else if (state.clicked === true) {
       setState({
-
         clicked: !state.clicked,
         menuName: "Menu"
       });
 
     } else if (state.clicked === false) {
       setState({
-
         clicked: !state.clicked,
         menuName: "Close"
       });
@@ -66,7 +62,11 @@ const Layout = props => {
                 <Link to="/">WebExpress</Link>
               </div>
               <div className="menu">
-                <button disabled={disabled} onClick={handleMenu} className="menu__button"> Menu </button>
+                <button disabled={disabled}
+                        onClick={handleMenu}
+                        className="menu__button">
+                         {state.menuName}
+                </button>
               </div>
             </div>
           </div>
