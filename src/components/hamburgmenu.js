@@ -18,12 +18,13 @@ import newyork from "../images/newyork.webp";
 import sanfrancisco from "../images/sanfrancisco.webp";
 import beijing from "../images/beijing.webp";
 
+
 const cities = [
-    {name: "Aalborg", image: dallas},
-    {name: "Copenhagen", image: austin},
-    {name: "Aarhus", image: newyork},
-    {name: "Prague", image: sanfrancisco},
-    {name: "Riga", image: beijing}
+    {name: "Aalborg", image: dallas, link: "/tags/color"},
+    {name: "Copenhagen", image: austin, link: "/tags/green"},
+    {name: "Aarhus", image: newyork, link: "/tags/pink"},
+    {name: "Prague", image: sanfrancisco, link: "/tags/retrowave"},
+    {name: "Riga", image: beijing, link: "/tags/vaporwave"}
 ];
 
 
@@ -100,15 +101,20 @@ const HamburgerMenu = ({state}) => {
                                 </p>
                             </div>
                             <div className='locations'>
-                                Locations:
+
+
+
+
                                 {/* Returning the list of cities */}
                                 {cities.map(el => (
                                     <span
                                         key={el.name}
-                                        // onMouseEnter={handleCity(el.image.current, cityBackground.current)}
+
                                         onMouseEnter={() => handleCity(el.image, cityBackground)}
                                         onMouseOut={() => handleCityReturn(cityBackground)}>
+                                        <Link to={el.link}>
                                          {el.name}
+                                        </Link>
                                      </span>
                                 ))}
                             </div>

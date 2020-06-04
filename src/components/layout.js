@@ -1,10 +1,13 @@
 import React, {useState} from "react";
 import { Link } from "gatsby";
-// import { ThemeToggler } from "gatsby-plugin-dark-mode";
+import { ThemeToggler } from "gatsby-plugin-dark-mode";
 import HamburgerMenu from "../components/hamburgmenu";
+
+
+
 const Layout = props => {
   const { title, children } = props;
-  // const [toggleNav, setToggleNav] = React.useState(false);
+  const [toggleNav, setToggleNav] = React.useState(false);
 
   const [state, setState] = useState({
     initial: false,
@@ -61,7 +64,24 @@ const Layout = props => {
               <div className="logo">
                 <Link to="/">WebExpress</Link>
               </div>
-              <div className="menu">
+
+              <div className="menu site-head-container">
+
+
+                <ThemeToggler>
+                  {({ theme, toggleTheme }) => (
+                      <label>
+                        <input
+                            type="checkbox"
+                            onChange={e =>
+                                toggleTheme(e.target.checked ? "dark" : "light")
+                            }
+                            checked={theme === "dark"}
+                        />{" "}
+                        Dark mode
+                      </label>
+                  )}
+                </ThemeToggler>
                 <button disabled={disabled}
                         onClick={handleMenu}
                         className="menu__button">
@@ -76,7 +96,6 @@ const Layout = props => {
 
 
       {/*<header className="site-head">*/}
-
       {/*  <div id="menu" className="site-head-container">*/}
       {/*    <a*/}
       {/*      className="nav-burger"*/}
@@ -119,20 +138,7 @@ const Layout = props => {
       {/*      </Link>*/}
       {/*    </div>*/}
       {/*    <div className="site-head-right">*/}
-      {/*      <ThemeToggler>*/}
-      {/*        {({ theme, toggleTheme }) => (*/}
-      {/*          <label>*/}
-      {/*            <input*/}
-      {/*              type="checkbox"*/}
-      {/*              onChange={e =>*/}
-      {/*                toggleTheme(e.target.checked ? "dark" : "light")*/}
-      {/*              }*/}
-      {/*              checked={theme === "dark"}*/}
-      {/*            />{" "}*/}
-      {/*            Dark mode*/}
-      {/*          </label>*/}
-      {/*        )}*/}
-      {/*      </ThemeToggler>*/}
+
       {/*      <div className="social-links">*/}
       {/*        <a*/}
       {/*          href="https://www.facebook.com"*/}
@@ -154,12 +160,8 @@ const Layout = props => {
       <footer className="site-foot">
         &copy; {new Date().getFullYear()} <Link to={`/`}>{title}</Link> &mdash;
         Built with{" "}
-        <a
-          href="https://gatsbyjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Gatsby
+        <a href="/">
+          Love
         </a>
       </footer>
     </div>

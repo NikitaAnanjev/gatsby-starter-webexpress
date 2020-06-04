@@ -128,6 +128,7 @@ header.custom-site-head {
               justify-content: center;
               flex-direction: column;
               vertical-align: middle;
+
               h3 {
                 //font-size: 1.2rem;
                 margin: 8px 0;
@@ -144,15 +145,20 @@ header.custom-site-head {
           .locations {
             position: absolute;
             bottom: -80px;
-            color: $white;
             margin-top: 16px;
-            //font-size: .8rem;
-            font-weight: 600;
+
+            a {
+              color: $white;
+              text-decoration: none;
+              font-weight: 600;
+            }
+
 
             span {
               &:first-child {
                 //margin-left: 64px;
               }
+
               font-weight: 400;
               cursor: pointer;
               margin: 0 32px;

@@ -4,7 +4,7 @@ import Img from "gatsby-image";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-
+import References from "../components/References";
 import "../style/normalize.css";
 import "../style/all.scss";
 
@@ -29,6 +29,8 @@ const WorkPage = ({ data }, location) => {
             />
             <figcaption>Large imagery is at the heart of this theme</figcaption>
           </figure>
+          <References/>
+
           <h3 id="dynamic-styles">Dynamic styles</h3>
           <p>
             London comes with photo-centric main layout best suited to
