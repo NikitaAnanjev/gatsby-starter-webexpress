@@ -5,11 +5,11 @@ import {
     staggerText,
     staggerReveal,
     fadeInUp,
-    handleHover,
-    handleHoverExit,
+    // handleHover,
+    // handleHoverExit,
     handleCityReturn,
     handleCity,
-    staggerRevealClose
+    // staggerRevealClose
 } from "./Animations";
 
 import dallas from "../images/imageone.jpg";
@@ -112,6 +112,7 @@ const HamburgerMenu = ({state}) => {
 
                                         onMouseEnter={() => handleCity(el.image, cityBackground)}
                                         onMouseOut={() => handleCityReturn(cityBackground)}>
+
                                         <Link to={el.link}>
                                          {el.name}
                                         </Link>

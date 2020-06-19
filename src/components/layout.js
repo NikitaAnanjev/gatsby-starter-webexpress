@@ -7,7 +7,7 @@ import HamburgerMenu from "../components/hamburgmenu";
 
 const Layout = props => {
   const { title, children } = props;
-  const [toggleNav, setToggleNav] = React.useState(false);
+  // const [toggleNav, setToggleNav] = React.useState(false);
 
   const [state, setState] = useState({
     initial: false,
@@ -65,7 +65,7 @@ const Layout = props => {
                 <Link to="/">WebExpress</Link>
               </div>
 
-              <div className="menu site-head-container">
+              <div className="menu">
 
 
                 <ThemeToggler>

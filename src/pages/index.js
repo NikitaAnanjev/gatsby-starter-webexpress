@@ -3,7 +3,7 @@ import { graphql, StaticQuery } from "gatsby";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-import Banner from "../components/banner";
+// import Banner from "../components/banner";
 // import Bio from "../components/bio"
 import PostCard from "../components/postCard";
 
@@ -17,7 +17,7 @@ const BlogIndex = ({ data }, location) => {
 
   return (
     <Layout title={siteTitle}>
-      <Banner />
+      {/*<Banner />*/}
       <SEO
         title="Blog"
         keywords={[`devlog`, `blog`, `gatsby`, `javascript`, `react`]}
