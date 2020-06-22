@@ -14,6 +14,10 @@ header.custom-site-head {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    @media (max-width: 500px) {
+
+      height: 50px;
+    }
 
     .logo a {
       font-weight: 700;
@@ -81,18 +85,57 @@ header.custom-site-head {
         width: 1280px;
         min-width: 1280px;
         margin: 0 auto;
+        @media (max-width: 1024px) {
+          width: 850px;
+          min-width: 768px;
+        }
+
+        @media (max-width: 850px) {
+          width: 768px;
+          min-width: 500px;
+        }
+
+        @media (max-width: 500px) {
+          width: 100%;
+          min-width: 310px;
+
+          height: 100%;
+        }
 
         .wrapper {
-          position: relative;
+
+          @media (max-width: 500px) {
+            position: relative;
+            //overflow-y: scroll;
+            float: left;
+            height: 100%;
+            width: 100%;
+          }
 
           .menu-links {
             display: flex;
             justify-content: space-between;
             position: relative;
             top: 200px;
+            @media (max-width: 850px) {
+
+              top: 125px;
+            }
+            @media (max-width: 500px) {
+              flex-direction: column;
+              position: relative;
+              float: left;
+              width: 100%;
+              top: 50px;
+            }
 
             nav {
               display: block;
+
+              @media (max-width: 500px) {
+                width: 100%;
+                position: relative;
+              }
 
               ul {
                 padding: 0;
@@ -107,6 +150,21 @@ header.custom-site-head {
                   overflow: hidden;
                   position: relative;
                   width: 700px;
+                  @media (max-width: 1024px) {
+                    width: 500px;
+
+                  }
+                  @media (max-width: 850px) {
+                    font-size: 4em;
+                    width: 400px;
+                    height: 85px;
+                  }
+
+                  @media (max-width: 500px) {
+                    font-size: 3em;
+                    height: 55px;
+                    width: 350px;
+                  }
 
                   a {
                     position: absolute;
@@ -128,6 +186,14 @@ header.custom-site-head {
               justify-content: center;
               flex-direction: column;
               vertical-align: middle;
+              @media (max-width: 500px) {
+
+                position: relative;
+                float: left;
+                display: block;
+                margin: 0.5em 0;
+                padding: 0 1.3em;
+              }
 
               h3 {
                 //font-size: 1.2rem;
@@ -146,6 +212,14 @@ header.custom-site-head {
             position: absolute;
             bottom: -80px;
             margin-top: 16px;
+            @media (max-width: 500px) {
+              width: 100%;
+              overflow-x: scroll;
+              position: relative;
+              float: left;
+              bottom: auto;
+              margin: 20px 0;
+            }
 
             a {
               color: $white;
